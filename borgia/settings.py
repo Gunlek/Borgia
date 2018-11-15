@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'settings_data',
     'modules',
     'stocks',
-    'static_precompiler'
+    'static_precompiler',
+    'graphene_django',
+    'debug_toolbar',
+    'graphiql_debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'contrib.models.LoginRequiredMiddleware',
     'contrib.models.SaveLoginUrlMiddleware',
+    'graphiql_debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'borgia.urls'
@@ -122,6 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+INTERNAL_IPS = ['127.0.0.1']
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

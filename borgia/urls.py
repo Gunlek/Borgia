@@ -60,6 +60,12 @@ urlpatterns = [
     path('', include(shops_patterns)),
     path('', include(stocks_patterns)),
     path('', include(users_patterns))
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
+
 # Cette ligne permet d'utiliser le dossier MEDIA en
 # dev (en prod c'est automatique)
