@@ -20,6 +20,9 @@ from shops.urls import shops_patterns
 from stocks.urls import stocks_patterns
 from users.urls import users_patterns
 
+from graphene_django.views import GraphQLView
+from schema import schema
+
 handler403 = handler403
 handler404 = handler404
 handler500 = handler500
@@ -59,7 +62,9 @@ urlpatterns = [
     path('', include(settings_patterns)),
     path('', include(shops_patterns)),
     path('', include(stocks_patterns)),
-    path('', include(users_patterns))
+    path('', include(users_patterns)),
+
+    path('<str:group_name>/graphql/', GraphQLView.as_view(graphiql=True, schema=schema))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

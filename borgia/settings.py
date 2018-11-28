@@ -128,6 +128,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 INTERNAL_IPS = ['127.0.0.1']
 
+# API
+GRAPHENE = {
+    'SCHEMA': 'Borgia.schema.schema',
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -163,7 +168,7 @@ LOGIN_EXEMPT_URLS = [
 LOGIN_EXEMPT_URL_PATTERNS = [
     re.compile('%s[\w-]+%s' % ('/auth/gadzarts/', '/')),
     re.compile('%s[\w-]+%s' % ('/auth/', '/')),
-    re.compile('^%s$' % ('/graphql')),
+ #   re.compile('^%s$' % ('/graphql')),
     re.compile('^%s.+%s[\d]+%s$' % ('/jwt/token/', '/', '.json')),
     re.compile('^%s.+%s[\d]+%s$' % ('/jwt/invalidate/', '/', '.json')),
     re.compile('^%s$' % ('/jwt/new.json')),
