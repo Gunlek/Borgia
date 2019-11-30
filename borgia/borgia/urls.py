@@ -17,6 +17,7 @@ from sales.urls import sales_patterns
 from shops.urls import shops_patterns
 from stocks.urls import stocks_patterns
 from users.urls import users_patterns
+from rest.urls import rest_patterns
 
 
 urlpatterns = [
@@ -53,7 +54,8 @@ urlpatterns = [
     path('', include(sales_patterns)),
     path('', include(shops_patterns)),
     path('', include(stocks_patterns)),
-    path('', include(users_patterns))
+    path('', include(users_patterns)),
+    path('', include(rest_patterns))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # Cette ligne permet d'utiliser le dossier MEDIA en
 # dev (en prod c'est automatique)
