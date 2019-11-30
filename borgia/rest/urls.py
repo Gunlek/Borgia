@@ -5,7 +5,9 @@ from rest import views
 rest_patterns = [
     path('api/', include([
         path('users/', views.UserList.as_view()),
-        path('users/<int:pk>/', views.UserDetail.as_view())
+        path('users/<int:pk>/', views.UserDetail.as_view()),
+        path('products/', views.ProductList.as_view()),
+        path('products/<int:pk>/', views.ProductDetail.as_view())
     ])),
     path('api-auth/', include('rest_framework.urls', namespace='rest-framework'))
 ]

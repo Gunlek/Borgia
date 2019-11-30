@@ -1,5 +1,7 @@
 from users.models import User
+from shops.models import Product, Shop
 from rest.serializers import UserSerializer
+from rest.serializers import ProductSerializer
 from rest_framework import permissions
 from rest_framework import generics
 
@@ -20,4 +22,16 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class ProductList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
