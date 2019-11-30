@@ -1,7 +1,8 @@
 from users.models import User
 from shops.models import Product, Shop
 from sales.models import Sale, SaleProduct
-from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer
+from finances.models import Transfert
+from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer, TransfertSerializer
 from rest_framework import permissions
 from rest_framework import generics
 
@@ -70,3 +71,15 @@ class SaleDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Sale.objects.all()
     serializer_class = SaleSerializer
+
+
+class TransfertList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Transfert.objects.all()
+    serializer_class = TransfertSerializer
+
+
+class TransfertDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Transfert.objects.all()
+    serializer_class = TransfertSerializer
