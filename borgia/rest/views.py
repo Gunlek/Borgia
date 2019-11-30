@@ -1,8 +1,7 @@
 from users.models import User
 from shops.models import Product, Shop
-from rest.serializers import UserSerializer
-from rest.serializers import ProductSerializer
-from rest.serializers import ShopSerializer
+from sales.models import Sale, SaleProduct
+from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer
 from rest_framework import permissions
 from rest_framework import generics
 
@@ -48,3 +47,26 @@ class ShopDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
 
+
+class SaleProductList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = SaleProduct.objects.all()
+    serializer_class = SaleProductSerializer
+
+
+class SaleProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = SaleProduct.objects.all()
+    serializer_class = SaleProductSerializer
+
+
+class SaleList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
+
+
+class SaleDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer

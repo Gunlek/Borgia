@@ -1,5 +1,6 @@
 from users.models import User
 from shops.models import Product, Shop
+from sales.models import SaleProduct, Sale
 from rest_framework import serializers
 
 
@@ -19,3 +20,15 @@ class ShopSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shop
         fields = ['id', 'name', 'description', 'color']
+
+
+class SaleProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SaleProduct
+        fields = ['id', 'quantity', 'price', 'product_id', 'sale_id']
+
+
+class SaleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sale
+        fields = ['id', 'datetime', 'module_id', 'sender_id', 'shop_id']
