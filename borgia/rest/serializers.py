@@ -1,7 +1,7 @@
 from users.models import User
 from shops.models import Product, Shop
 from sales.models import SaleProduct, Sale
-from finances.models import Transfert
+from finances.models import Transfert, ExceptionnalMovement
 from rest_framework import serializers
 
 
@@ -39,3 +39,9 @@ class TransfertSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transfert
         fields = ['id', 'datetime', 'justification', 'amount', 'recipient_id', 'sender_id']
+
+
+class ExceptionnalMovementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ExceptionnalMovement
+        fields = ['id', 'datetime', 'justification', 'amount', 'is_credit', 'operator_id', 'recipient_id']

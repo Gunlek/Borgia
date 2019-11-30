@@ -1,8 +1,8 @@
 from users.models import User
 from shops.models import Product, Shop
 from sales.models import Sale, SaleProduct
-from finances.models import Transfert
-from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer, TransfertSerializer
+from finances.models import Transfert, ExceptionnalMovement
+from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer, TransfertSerializer, ExceptionnalMovementSerializer
 from rest_framework import permissions
 from rest_framework import generics
 
@@ -83,3 +83,15 @@ class TransfertDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Transfert.objects.all()
     serializer_class = TransfertSerializer
+
+
+class ExceptionnalMovementList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = ExceptionnalMovement.objects.all()
+    serializer_class = ExceptionnalMovementSerializer
+
+
+class ExceptionnalMovementDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = ExceptionnalMovement.objects.all()
+    serializer_class = ExceptionnalMovementSerializer

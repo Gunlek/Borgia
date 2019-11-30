@@ -15,7 +15,9 @@ rest_patterns = [
         path('sales/', views.SaleList.as_view()),
         path('sales/<int:pk>/', views.SaleDetail.as_view()),
         path('transferts/', views.SaleList.as_view()),
-        path('transferts/<int:pk>/', views.SaleDetail.as_view())
+        path('transferts/<int:pk>/', views.SaleDetail.as_view()),
+        path('exceptionnalmovements/', views.ExceptionnalMovementList.as_view()),
+        path('exceptionnalmovements/<int:pk>/', views.ExceptionnalMovementDetail.as_view())
     ])),
     path('api-auth/', include('rest_framework.urls', namespace='rest-framework'))
 ]
