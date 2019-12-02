@@ -5,7 +5,7 @@ from rest.views import UserDetail, UserList
 from users.models import User
 
 
-class UserAuthFreeRESTAPITest(TestCase):
+class UserAuthFreeRESTApiTest(TestCase):
     url_api_list = 'api-list-users'
     url_api_detail = 'api-detail-user'
 
