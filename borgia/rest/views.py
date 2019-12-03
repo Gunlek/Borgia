@@ -2,7 +2,8 @@ from users.models import User
 from shops.models import Product, Shop
 from sales.models import Sale, SaleProduct
 from finances.models import Transfert, ExceptionnalMovement
-from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer, TransfertSerializer, ExceptionnalMovementSerializer
+from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer, \
+    TransfertSerializer, ExceptionnalMovementSerializer, UserPasswordSerializer
 from rest_framework import permissions
 from rest_framework import generics
 
@@ -22,7 +23,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserPasswordSerializer
 
 
 class ProductList(generics.ListCreateAPIView):

@@ -11,6 +11,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'last_name', 'first_name', 'email', 'surname', 'family', 'balance', 'year', 'campus', 'phone']
 
 
+class UserPasswordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'last_name', 'first_name', 'password', 'email', 'surname', 'family', 'balance', 'year', 'campus', 'phone']
+
+
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
