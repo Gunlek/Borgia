@@ -3,7 +3,7 @@ from shops.models import Product, Shop
 from sales.models import Sale, SaleProduct
 from finances.models import Transfert, ExceptionnalMovement
 from rest.serializers import UserSerializer, ProductSerializer, ShopSerializer, SaleSerializer, SaleProductSerializer, \
-    TransfertSerializer, ExceptionnalMovementSerializer, UserPasswordSerializer
+    TransfertSerializer, ExceptionnalMovementSerializer
 from rest_framework import permissions
 from rest_framework import generics
 
@@ -23,7 +23,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
-    serializer_class = UserPasswordSerializer
+    serializer_class = UserSerializer
 
 
 class ProductList(generics.ListCreateAPIView):
