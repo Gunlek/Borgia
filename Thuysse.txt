@@ -1,0 +1,9 @@
+Sal'ss
+Cette branche "Thuysse" ainsi que ce fichier permettront de faire une version
+commentée de Borgia afin de pouvoir reprendre la maitrise ainsi que permettre
+le suivi maintenance du site. Cette branche n'est pas une branche de développement
+merci de ne modifier que les commentaires de chaque fichiers !!
+Daté du 09/07/2020
+M76 Bo219
+
+Début :
